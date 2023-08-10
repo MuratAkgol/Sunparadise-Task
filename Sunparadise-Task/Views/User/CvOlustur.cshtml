@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/AfterLoginLayout.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col">
+        <form asp-action="CVYarat" asp-controller="User" method="post">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Ad Soyad</span>
+            <input type="text" class="form-control" placeholder="" name="AdSoyad" aria-label="AdSoyad" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Deneyim</span>
+            <input type="text" class="form-control" placeholder="" name="Deneyim" aria-label="Deneyim" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Beceriler</span>
+            <input type="text" class="form-control" placeholder="" name="Beceriler" aria-label="Beceriler" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Sertifikalar</span>
+            <input type="text" class="form-control" placeholder="" name="Sertifikalar" aria-label="Sertifikalar" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Eğitim</span>
+            <input type="text" class="form-control" placeholder="" name="Eğitim" aria-label="Eğitim" aria-describedby="basic-addon1">
+        </div>
+        <button class="btn btn-success">Oluştur</button>
+        </form>
+    </div>
+</div>
+
+
+

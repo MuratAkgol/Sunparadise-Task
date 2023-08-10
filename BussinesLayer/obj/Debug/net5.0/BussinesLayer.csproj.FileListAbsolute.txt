@@ -1,0 +1,17 @@
+C:\Users\huawei\Desktop\Sunparadise-Task\BussinesLayer\bin\Debug\net5.0\BussinesLayer.deps.json
+C:\Users\huawei\Desktop\Sunparadise-Task\BussinesLayer\bin\Debug\net5.0\BussinesLayer.dll
+C:\Users\huawei\Desktop\Sunparadise-Task\BussinesLayer\bin\Debug\net5.0\BussinesLayer.pdb
+C:\Users\huawei\Desktop\Sunparadise-Task\BussinesLayer\bin\Debug\net5.0\DataLayer.dll
+C:\Users\huawei\Desktop\Sunparadise-Task\BussinesLayer\bin\Debug\net5.0\EntityLayer.dll
+C:\Users\huawei\Desktop\Sunparadise-Task\BussinesLayer\bin\Debug\net5.0\DataLayer.pdb
+C:\Users\huawei\Desktop\Sunparadise-Task\BussinesLayer\bin\Debug\net5.0\EntityLayer.pdb
+C:\Users\huawei\Desktop\Sunparadise-Task\BussinesLayer\obj\Debug\net5.0\BussinesLayer.csproj.AssemblyReference.cache
+C:\Users\huawei\Desktop\Sunparadise-Task\BussinesLayer\obj\Debug\net5.0\BussinesLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\huawei\Desktop\Sunparadise-Task\BussinesLayer\obj\Debug\net5.0\BussinesLayer.AssemblyInfoInputs.cache
+C:\Users\huawei\Desktop\Sunparadise-Task\BussinesLayer\obj\Debug\net5.0\BussinesLayer.AssemblyInfo.cs
+C:\Users\huawei\Desktop\Sunparadise-Task\BussinesLayer\obj\Debug\net5.0\BussinesLayer.csproj.CoreCompileInputs.cache
+C:\Users\huawei\Desktop\Sunparadise-Task\BussinesLayer\obj\Debug\net5.0\BussinesLayer.csproj.CopyComplete
+C:\Users\huawei\Desktop\Sunparadise-Task\BussinesLayer\obj\Debug\net5.0\BussinesLayer.dll
+C:\Users\huawei\Desktop\Sunparadise-Task\BussinesLayer\obj\Debug\net5.0\refint\BussinesLayer.dll
+C:\Users\huawei\Desktop\Sunparadise-Task\BussinesLayer\obj\Debug\net5.0\BussinesLayer.pdb
+C:\Users\huawei\Desktop\Sunparadise-Task\BussinesLayer\obj\Debug\net5.0\ref\BussinesLayer.dll

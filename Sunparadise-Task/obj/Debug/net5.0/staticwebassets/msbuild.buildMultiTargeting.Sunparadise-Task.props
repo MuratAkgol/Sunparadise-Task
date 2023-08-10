@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Sunparadise-Task.props" />
+</Project>
