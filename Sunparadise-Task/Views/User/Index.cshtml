@@ -4,4 +4,16 @@
 @{
     Layout = "~/Views/Shared/AfterLoginLayout.cshtml";
 }
-merhabba
+@using EntityLayer
+@model List<IsIlanı>
+
+
+@foreach(var item in Model){
+    <b>@item.Baslik</b>
+    <br />
+    <b>@item.IsVerenAdi</b>
+    <p>İçerik: </p> @item.Icerik
+    @item.CalismaTuru
+
+
+}

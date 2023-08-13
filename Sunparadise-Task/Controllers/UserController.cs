@@ -3,6 +3,7 @@ using DataLayer;
 using EntityLayer;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using System.Security.Cryptography.Xml;
 
 namespace Sunparadise_Task.Controllers
 {
@@ -13,8 +14,14 @@ namespace Sunparadise_Task.Controllers
         UserManager _users = new UserManager();
         User _user;
 
+        Employer _employers = new Employer();
+        Employer _employer;
+
         CvManager _cv = new CvManager();
         CvTable _cvtable;
+
+        IsIlaniManager _isler= new IsIlaniManager();
+        IsIlanı _is;
         
         [HttpGet]
         public IActionResult Aday()
@@ -70,7 +77,8 @@ namespace Sunparadise_Task.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            var result = db.IsIlanlari.ToList();
+            return View(result);
         }
     }
 }

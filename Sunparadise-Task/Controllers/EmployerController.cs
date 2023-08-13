@@ -16,6 +16,9 @@ namespace Sunparadise_Task.Controllers
         CvManager _cv = new CvManager();
         CvTable _cvtlb;
 
+        IsIlaniManager _isler = new IsIlaniManager();
+        IsIlanı _is;
+
         [HttpGet]
         public IActionResult Isveren()
         {
@@ -55,6 +58,25 @@ namespace Sunparadise_Task.Controllers
         public IActionResult CvGoruntule()
         {
             var result = _cv.List();
+            return View(result);
+        }
+        [HttpGet]
+        public IActionResult IlanOlustur()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult IlanOlustur(IsIlanı isilani)
+        {
+            //isilani.IsVerenId = GlobalDeğişkenler.GirisId;
+            isilani.IsVerenAdi = db.Employers.FirstOrDefault(x => x.Id == GlobalDeğişkenler.GirisId).FirmaAdi;
+            _isler.Add(isilani);
+            return RedirectToAction("Index");
+            
+        }
+        public IActionResult IsIlanlarim()
+        {
+            var result = db.IsIlanlari.Where(x=>x.IsVerenAdi == GlobalDeğişkenler.GirisId.ToString()).OrderByDescending(x=>x.ID).ToList();
             return View(result);
         }
         public IActionResult Index()

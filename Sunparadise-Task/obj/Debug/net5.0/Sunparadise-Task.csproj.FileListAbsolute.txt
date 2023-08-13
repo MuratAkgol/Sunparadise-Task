@@ -86,3 +86,5 @@ C:\Users\huawei\Desktop\Sunparadise-Task\Sunparadise-Task\obj\Debug\net5.0\Razor
 C:\Users\huawei\Desktop\Sunparadise-Task\Sunparadise-Task\obj\Debug\net5.0\Razor\Views\Employer\UyeOl.cshtml.g.cs
 C:\Users\huawei\Desktop\Sunparadise-Task\Sunparadise-Task\obj\Debug\net5.0\Razor\Views\Shared\AfterLoginEmployer.cshtml.g.cs
 C:\Users\huawei\Desktop\Sunparadise-Task\Sunparadise-Task\obj\Debug\net5.0\Razor\Views\Employer\CvGoruntule.cshtml.g.cs
+C:\Users\huawei\Desktop\Sunparadise-Task\Sunparadise-Task\obj\Debug\net5.0\Razor\Views\Employer\IlanOlustur.cshtml.g.cs
+C:\Users\huawei\Desktop\Sunparadise-Task\Sunparadise-Task\obj\Debug\net5.0\Razor\Views\Employer\IsIlanlarim.cshtml.g.cs

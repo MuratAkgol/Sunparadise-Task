@@ -20,5 +20,6 @@ namespace DataLayer
         public DbSet<User> Users { get; set; }
         public DbSet<Employer> Employers { get; set; }
         public DbSet<CvTable> Cv { get; set; }
+        public DbSet<IsIlanı> IsIlanlari { get; set; }
     }
 }

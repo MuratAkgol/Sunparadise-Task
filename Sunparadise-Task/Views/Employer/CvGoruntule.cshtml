@@ -7,7 +7,25 @@
 @using EntityLayer
 @model List<CvTable>
 
-<div class="row">
+<p>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Filtrele
+    </button>
+</p>
+<div class="collapse" id="collapseExample">
+    <div class="card card-body">
+        <div class="row">
+            <div class="col"><p>Filtrelenecek Sözcüğü giriniz: &nbsp; <input type="text" id="AdSoyad" /></p></div>
+            @*<div class="col"><p>Deneyim <input type="text" id="Deneyim" /></p></div>
+            <div class="col"><p>Eğitim:&nbsp; <input type="text" id="egitim" /></p></div>
+            <div class="col"><p>Sertifikalar <input type="text" id="Sertifikalar" /></p></div>*@
+        </div>
+        
+    </div>
+</div>
+
+
+<div class="row" id="card">
 @foreach(var item in Model){
    @* @item.Deneyim
     @item.Eğitim
@@ -20,10 +38,23 @@
                     <p class="card-text">@item.Deneyim</p>
                     <p class="card-text">@item.Eğitim</p>
                     <p class="card-text">@item.Sertifikalar</p>
-                    
+                    <p class="card-text">@item.Beceriler</p>                    
                 </div>
             </div>
         </div>
 }
     </div>
+
+
+<script>
+    $(document).ready(function () {
+        $("#AdSoyad").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#card div").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            })
+        })
+    })
+</script>
+
 

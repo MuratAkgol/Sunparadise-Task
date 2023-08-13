@@ -3,14 +3,16 @@ using DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20230813155728_mgIsilaniyeni")]
+    partial class mgIsilaniyeni
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -85,8 +87,8 @@ namespace DataLayer.Migrations
                     b.Property<string>("Icerik")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("IsVerenAdi")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("IsVerenId")
+                        .HasColumnType("int");
 
                     b.HasKey("ID");
 
