@@ -21,7 +21,7 @@ namespace DataLayer
         public DbSet<Employer> Employers { get; set; }
         public DbSet<CvTable> Cv { get; set; }
         public DbSet<IsIlanı> IsIlanlari { get; set; }
-        public DbSet<Cv> CvTablosu { get; set; }
+        public DbSet<CvTablosu> CvTablosu { get; set; }
         public DbSet<Deneyim> DeneyimTablosu { get; set; }
     }
 }

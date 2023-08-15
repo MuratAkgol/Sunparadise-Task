@@ -19,21 +19,6 @@ namespace DataLayer.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
-            modelBuilder.Entity("EntityLayer.Cv", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("IsimSoyisim")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CvTablosu");
-                });
-
             modelBuilder.Entity("EntityLayer.CvTable", b =>
                 {
                     b.Property<int>("Id")
@@ -61,6 +46,21 @@ namespace DataLayer.Migrations
                     b.ToTable("Cv");
                 });
 
+            modelBuilder.Entity("EntityLayer.CvTablosu", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("IsimSoyisim")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CvTablosu");
+                });
+
             modelBuilder.Entity("EntityLayer.Deneyim", b =>
                 {
                     b.Property<int>("Id")
@@ -74,7 +74,7 @@ namespace DataLayer.Migrations
                     b.Property<DateTime>("Bitis")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("CvIdId")
+                    b.Property<int>("CvTablosuId")
                         .HasColumnType("int");
 
                     b.Property<string>("FirmaAdi")
@@ -88,9 +88,9 @@ namespace DataLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CvIdId");
+                    b.HasIndex("CvTablosuId");
 
-                    b.ToTable("Deneyim");
+                    b.ToTable("DeneyimTablosu");
                 });
 
             modelBuilder.Entity("EntityLayer.Employer", b =>
@@ -170,14 +170,16 @@ namespace DataLayer.Migrations
 
             modelBuilder.Entity("EntityLayer.Deneyim", b =>
                 {
-                    b.HasOne("EntityLayer.Cv", "CvId")
+                    b.HasOne("EntityLayer.CvTablosu", "CvTablosu")
                         .WithMany("Deneyimler")
-                        .HasForeignKey("CvIdId");
+                        .HasForeignKey("CvTablosuId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("CvId");
+                    b.Navigation("CvTablosu");
                 });
 
-            modelBuilder.Entity("EntityLayer.Cv", b =>
+            modelBuilder.Entity("EntityLayer.CvTablosu", b =>
                 {
                     b.Navigation("Deneyimler");
                 });

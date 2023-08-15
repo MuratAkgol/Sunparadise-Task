@@ -40,7 +40,7 @@
         <div class="row">
             <div class="col">
                 <h2>Ad Soyad</h2>
-                <input type="text">
+                <input type="text" name="IsimSoyisim">
             </div>
         </div>
 
@@ -88,6 +88,13 @@
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                     <div class="card-body">
+                        
+                            @foreach (var veri in ViewBag.Data as List<string>)
+                            {
+                                @veri
+                            }
+                        
+
                     </div>
                 </div>
                 <div class="card">
@@ -153,8 +160,8 @@
                                 <input class="form-control" type="text" name="" id="">
                             </div>
                             @*<div class="col-md-3 col-sm-6 mt-4">
-                                <h4>Not ortalaması</h4>
-                                <input class="form-control" type="text" name="" id="" placeholder="4 üzerinden">
+                            <h4>Not ortalaması</h4>
+                            <input class="form-control" type="text" name="" id="" placeholder="4 üzerinden">
                             </div>*@
                         </div>
                     </div>
@@ -177,40 +184,42 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-3 col-sm-6">
-                                <h3>Firma Adı</h3>
-                                <input class="form-control" type="text" name="" id="">
+                    <form asp-action="CvOlustur" asp-controller="User" method="post">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-3 col-sm-6">
+                                    <h3>Firma Adı</h3>
+                                    <input class="form-control" type="text" name="FirmaAdi" id="">
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <h3>Pozisyon</h3>
+                                    <input class="form-control" type="text" name="Pozisyon" id="">
+                                </div>
                             </div>
-                            <div class="col-md-3 col-sm-6">
-                                <h3>Pozisyon</h3>
-                                <input class="form-control" type="text" name="" id="">
+                            <div class="row mt-4">
+                                <div class="col-md-3 col-sm-6">
+                                    <h3>Başlama Tarihi</h3>
+                                    <input class="form-control" type="text" name="Baslama" id="">
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <h3>Bitiş Tarihi</h3>
+                                    <input class="form-control" type="text" name="Bitis" id="">
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-md-6 col-sm-6">
+                                    <h3>İş tanımı</h3>
+                                    <textarea class="form-control" name="IsTanimi" id="" cols="100" rows="10"></textarea>
+                                </div>
                             </div>
                         </div>
-                        <div class="row mt-4">
-                            <div class="col-md-3 col-sm-6">
-                                <h3>Başlama Tarihi</h3>
-                                <input class="form-control" type="text" name="" id="">
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <h3>Bitiş Tarihi</h3>
-                                <input class="form-control" type="text" name="" id="">
-                            </div>
-                        </div>
-                        <div class="row mt-4">
-                            <div class="col-md-6 col-sm-6">
-                                <h3>İş tanımı</h3>
-                                <textarea class="form-control" name="" id="" cols="100" rows="10"></textarea>
-                            </div>
-                        </div>
-                    </div>
+                        <
 
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <input type="submit" class="btn btn-primary">Save changes</input>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
