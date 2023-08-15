@@ -76,7 +76,8 @@ namespace Sunparadise_Task.Controllers
         }
         public IActionResult IsIlanlarim()
         {
-            var result = db.IsIlanlari.Where(x=>x.IsVerenAdi == GlobalDeğişkenler.GirisId.ToString()).OrderByDescending(x=>x.ID).ToList();
+            var isVerenAdi = db.Employers.FirstOrDefault(x => x.Id == GlobalDeğişkenler.GirisId).FirmaAdi;
+            var result = db.IsIlanlari.Where(x=>x.IsVerenAdi == isVerenAdi).OrderByDescending(x=>x.ID).ToList();
             return View(result);
         }
         public IActionResult Index()

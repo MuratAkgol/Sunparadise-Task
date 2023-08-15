@@ -7,9 +7,9 @@
 
 
 
-<div class="row">
+@*<div class="row">
     <div class="col">
-        <form asp-action="CVYarat" asp-controller="User" method="post">
+        <form asp-action="CvOlustur" asp-controller="User" method="post">
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Ad Soyad</span>
             <input type="text" class="form-control" placeholder="" name="AdSoyad" aria-label="AdSoyad" aria-describedby="basic-addon1">
@@ -33,7 +33,191 @@
         <button class="btn btn-success">Oluştur</button>
         </form>
     </div>
-</div>
+</div>*@
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Ad Soyad</h2>
+                <input type="text">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container mt-4">
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <div class="row">
+                        <div class="col-6">
+                            <button class="btn text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <h3>Eğitim Bilgilerim</h3>
+                            </button>
+                        </div>
+                        <div class="col-6 justify-content-end">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#egitmEkleModal">
+                                Ekle
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div class="row">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <div class="row">
+                        <div class="col-6">
+                            <button class="btn text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <h3>Deneyim</h3>
+                            </button>
+                        </div>
+                        <div class="col-6 justify-content-end">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deneyimEkleModal">
+                                Ekle
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button class="btn text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <h3>Sertifikalar</h3>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="card-body">
+                            And lastly, the placeholder content for the third and final accordion panel. This panel is hidden by default.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <!-- Button trigger modal -->
+        <!-- Modal -->
+        <div class="modal fade" id="egitmEkleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Eğitim bilgisi ekle</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-md-3">
+                            <h4>Eğitim Durumu</h4>
+                            <select class="form-control" style="width: 100%;">
+                                <option>Lisans</option>
+                                <option>Önlisans</option>
+                                <option>Lise</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 col-sm-6 mt-3">
+                            <h4>Başlangıç Tarihi</h4>
+                            <input class="form-control" type="text" name="" id="">
+                        </div>
+                        <div class="col-md-3 col-sm-6 mt-4">
+                            <h4>Bitiş Tarihi</h4>
+                            <input class="form-control" type="text" name="" id="">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 col-sm-6 mt-4">
+                                <h4>Üniversite*</h4>
+                                <select class="form-control" style="width: 100%;">
+                                    <option>Lisans</option>
+                                    <option>Önlisans</option>
+                                    <option>Lise</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 col-sm-6 mt-4">
+                                <h4>Bölüm</h4>
+                                <input class="form-control" type="text" name="" id="">
+                            </div>
+                            @*<div class="col-md-3 col-sm-6 mt-4">
+                                <h4>Not ortalaması</h4>
+                                <input class="form-control" type="text" name="" id="" placeholder="4 üzerinden">
+                            </div>*@
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Modal Deneyim-->
+        <div class="modal fade" id="deneyimEkleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Eğitim bilgisi ekle</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-6">
+                                <h3>Firma Adı</h3>
+                                <input class="form-control" type="text" name="" id="">
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <h3>Pozisyon</h3>
+                                <input class="form-control" type="text" name="" id="">
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-3 col-sm-6">
+                                <h3>Başlama Tarihi</h3>
+                                <input class="form-control" type="text" name="" id="">
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <h3>Bitiş Tarihi</h3>
+                                <input class="form-control" type="text" name="" id="">
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-6 col-sm-6">
+                                <h3>İş tanımı</h3>
+                                <textarea class="form-control" name="" id="" cols="100" rows="10"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
 
 
 

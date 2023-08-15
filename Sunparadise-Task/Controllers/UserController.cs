@@ -53,7 +53,7 @@ namespace Sunparadise_Task.Controllers
             {
                 _users.Add(user);
                 
-                return RedirectToAction("Index");
+                return RedirectToAction("Aday");
             }
             else
             {
@@ -61,8 +61,14 @@ namespace Sunparadise_Task.Controllers
             }
             
         }
+        [HttpGet]
+        public IActionResult CvOlustur()
+        {
+            
+            return View();
+        }
         [HttpPost]
-        public IActionResult CVYarat(CvTable cvtbl)
+        public IActionResult CvOlustur(CvTable cvtbl)
         {
             _cv.Add(cvtbl);
 
@@ -71,13 +77,9 @@ namespace Sunparadise_Task.Controllers
             _users.Update(user);
             return RedirectToAction("CvOlustur");
         }
-        public IActionResult CvOlustur()
-        {
-            return View();
-        }
         public IActionResult Index()
         {
-            var result = db.IsIlanlari.ToList();
+            var result = db.IsIlanlari.OrderByDescending(x=>x.ID).Take(4).ToList();
             return View(result);
         }
     }
