@@ -23,5 +23,6 @@ namespace DataLayer
         public DbSet<IsIlanı> IsIlanlari { get; set; }
         public DbSet<CvTablosu> CvTablosu { get; set; }
         public DbSet<Deneyim> DeneyimTablosu { get; set; }
+        public DbSet<Egitim> EgitimTablosu { get; set; }
     }
 }

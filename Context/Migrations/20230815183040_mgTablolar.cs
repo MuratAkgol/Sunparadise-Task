@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DataLayer.Migrations
 {
-    public partial class mg_Deneyi2 : Migration
+    public partial class mgTablolar : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

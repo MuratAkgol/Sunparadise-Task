@@ -4,14 +4,16 @@ using DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20230815183040_mgTablolar")]
+    partial class mgTablolar
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -91,32 +93,6 @@ namespace DataLayer.Migrations
                     b.HasIndex("CvTablosuId");
 
                     b.ToTable("DeneyimTablosu");
-                });
-
-            modelBuilder.Entity("EntityLayer.Egitim", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("Bolum")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CvTablosuId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Lise")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Universite")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CvTablosuId");
-
-                    b.ToTable("EgitimTablosu");
                 });
 
             modelBuilder.Entity("EntityLayer.Employer", b =>
@@ -205,22 +181,9 @@ namespace DataLayer.Migrations
                     b.Navigation("CvTablosu");
                 });
 
-            modelBuilder.Entity("EntityLayer.Egitim", b =>
-                {
-                    b.HasOne("EntityLayer.CvTablosu", "CvTablosu")
-                        .WithMany("Egitimler")
-                        .HasForeignKey("CvTablosuId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("CvTablosu");
-                });
-
             modelBuilder.Entity("EntityLayer.CvTablosu", b =>
                 {
                     b.Navigation("Deneyimler");
-
-                    b.Navigation("Egitimler");
                 });
 #pragma warning restore 612, 618
         }

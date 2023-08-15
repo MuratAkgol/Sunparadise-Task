@@ -5,46 +5,11 @@
     Layout = "~/Views/Shared/AfterLoginLayout.cshtml";
 }
 
-
-
-@*<div class="row">
-    <div class="col">
-        <form asp-action="CvOlustur" asp-controller="User" method="post">
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Ad Soyad</span>
-            <input type="text" class="form-control" placeholder="" name="AdSoyad" aria-label="AdSoyad" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Deneyim</span>
-            <input type="text" class="form-control" placeholder="" name="Deneyim" aria-label="Deneyim" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Beceriler</span>
-            <input type="text" class="form-control" placeholder="" name="Beceriler" aria-label="Beceriler" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Sertifikalar</span>
-            <input type="text" class="form-control" placeholder="" name="Sertifikalar" aria-label="Sertifikalar" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Eğitim</span>
-            <input type="text" class="form-control" placeholder="" name="Eğitim" aria-label="Eğitim" aria-describedby="basic-addon1">
-        </div>
-        <button class="btn btn-success">Oluştur</button>
-        </form>
-    </div>
-</div>*@
+@using EntityLayer
+@model List<Deneyim>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h2>Ad Soyad</h2>
-                <input type="text" name="IsimSoyisim">
-            </div>
-        </div>
-
-    </div>
+   
 
     <div class="container mt-4">
         <div class="accordion" id="accordionExample">
@@ -67,6 +32,9 @@
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                     <div class="card-body">
                         <div class="row">
+                            @ViewBag.Lise
+                            @ViewBag.Universite
+                            @ViewBag.Bolum
                         </div>
                     </div>
                 </div>
@@ -88,11 +56,13 @@
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                     <div class="card-body">
-                        
-                            @foreach (var veri in ViewBag.Data as List<string>)
-                            {
-                                @veri
-                            }
+
+                        @foreach (var item in Model)
+                        {
+                            <p><b>Poziyon: </b>&nbsp; @item.Pozisyon</p>
+
+                            <p><b>İş Tanımı:</b>&nbsp; @item.IsTanimi</p>
+                        }
                         
 
                     </div>
@@ -119,58 +89,38 @@
 
 
         <!-- Button trigger modal -->
-        <!-- Modal -->
+        <!-- Modal Eğitim  -->
         <div class="modal fade" id="egitmEkleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Eğitim bilgisi ekle</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="col-md-3">
-                            <h4>Eğitim Durumu</h4>
-                            <select class="form-control" style="width: 100%;">
-                                <option>Lisans</option>
-                                <option>Önlisans</option>
-                                <option>Lise</option>
-                            </select>
+                <form asp-action="Egitim" asp-controller="User" method="post">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Eğitim bilgisi ekle</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-                        <div class="col-md-3 col-sm-6 mt-3">
-                            <h4>Başlangıç Tarihi</h4>
-                            <input class="form-control" type="text" name="" id="">
-                        </div>
-                        <div class="col-md-3 col-sm-6 mt-4">
-                            <h4>Bitiş Tarihi</h4>
-                            <input class="form-control" type="text" name="" id="">
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3 col-sm-6 mt-4">
-                                <h4>Üniversite*</h4>
-                                <select class="form-control" style="width: 100%;">
-                                    <option>Lisans</option>
-                                    <option>Önlisans</option>
-                                    <option>Lise</option>
-                                </select>
+                        <div class="modal-body">
+                            <div class="col-md-3">
+                                <h4>Mezun olduğunuz lise*</h4>
+                                <input class="form-control" type="text" name="Lise" />
                             </div>
-                            <div class="col-md-3 col-sm-6 mt-4">
+                            <div class="col-md-3 col-sm-6 mt-3">
+                                <h4>Mezun olduğunuz Üniversite</h4>
+                                <input class="form-control" type="text" name="Universite">
+                            </div>
+                            <div class="col-md-3 col-sm-6 mt-3">
                                 <h4>Bölüm</h4>
-                                <input class="form-control" type="text" name="" id="">
+                                <input class="form-control" type="text" name="Bolum">
                             </div>
-                            @*<div class="col-md-3 col-sm-6 mt-4">
-                            <h4>Not ortalaması</h4>
-                            <input class="form-control" type="text" name="" id="" placeholder="4 üzerinden">
-                            </div>*@
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
                         </div>
                     </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
 
@@ -184,7 +134,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form asp-action="CvOlustur" asp-controller="User" method="post">
+                    <form asp-action="Deneyim" asp-controller="User" method="post">
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-md-3 col-sm-6">
@@ -197,27 +147,15 @@
                                 </div>
                             </div>
                             <div class="row mt-4">
-                                <div class="col-md-3 col-sm-6">
-                                    <h3>Başlama Tarihi</h3>
-                                    <input class="form-control" type="text" name="Baslama" id="">
-                                </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <h3>Bitiş Tarihi</h3>
-                                    <input class="form-control" type="text" name="Bitis" id="">
-                                </div>
-                            </div>
-                            <div class="row mt-4">
                                 <div class="col-md-6 col-sm-6">
                                     <h3>İş tanımı</h3>
                                     <textarea class="form-control" name="IsTanimi" id="" cols="100" rows="10"></textarea>
                                 </div>
                             </div>
                         </div>
-                        <
-
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <input type="submit" class="btn btn-primary">Save changes</input>
+                            <input type="submit" class="btn btn-primary" value="Kaydet" />
                         </div>
                     </form>
                 </div>

@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/AfterLoginEmployer.cshtml";
 }
 @using EntityLayer
-@model List<CvTable>
+@model List<CvTablosu>
 
 <p>
     <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -20,30 +20,29 @@
             <div class="col"><p>Eğitim:&nbsp; <input type="text" id="egitim" /></p></div>
             <div class="col"><p>Sertifikalar <input type="text" id="Sertifikalar" /></p></div>*@
         </div>
-        
+
     </div>
 </div>
 
 
 <div class="row" id="card">
-@foreach(var item in Model){
-   @* @item.Deneyim
-    @item.Eğitim
-    @item.AdSoyad*@
-    <div class="col-3 mt-2">
+    @foreach (var item in Model)
+    {
+        <div class="col-3 mt-2">
             <div class="card mt-2">
                 <div class="card-body">
-                    <h5 class="card-title">@item.AdSoyad</h5>
-                    @*<h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>*@
-                    <p class="card-text">@item.Deneyim</p>
-                    <p class="card-text">@item.Eğitim</p>
-                    <p class="card-text">@item.Sertifikalar</p>
-                    <p class="card-text">@item.Beceriler</p>                    
+                    <h5 class="card-title">@item.IsimSoyisim</h5>
+                    @foreach (var deneyim in item.Deneyimler)
+                    {
+                        <p><b>Çalıştığı Şirket</b> <br/> @deneyim.FirmaAdi</p>
+                        <p><b>Pozisyonu</b><br />@deneyim.Pozisyon</p>
+                        <hr />
+                    }
                 </div>
             </div>
         </div>
-}
-    </div>
+    }
+</div>
 
 
 <script>

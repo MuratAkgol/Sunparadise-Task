@@ -178,3 +178,4 @@ C:\Users\murat\Desktop\Sunparadise\Sunparadise-Task\Sunparadise-Task\obj\Debug\n
 C:\Users\murat\Desktop\Sunparadise\Sunparadise-Task\Sunparadise-Task\obj\Debug\net5.0\Sunparadise-Task.pdb
 C:\Users\murat\Desktop\Sunparadise\Sunparadise-Task\Sunparadise-Task\obj\Debug\net5.0\Sunparadise-Task.genruntimeconfig.cache
 C:\Users\murat\Desktop\Sunparadise\Sunparadise-Task\Sunparadise-Task\obj\Debug\net5.0\ref\Sunparadise-Task.dll
+C:\Users\murat\Desktop\Sunparadise\Sunparadise-Task\Sunparadise-Task\obj\Debug\net5.0\Razor\Views\Cv\Deneyim.cshtml.g.cs
