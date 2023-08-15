@@ -83,7 +83,26 @@ namespace Sunparadise_Task.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            var result = db.Employers.Where(x=>x.Id == GlobalDeğişkenler.GirisId).ToList();
+            return View(result);
+        }
+        [HttpPost]
+        public IActionResult BilgiGuncelle(Employer emp)
+        {
+            var sirketHk = emp.FirmaHk;
+            emp = db.Employers.FirstOrDefault(x => x.Id == GlobalDeğişkenler.GirisId);
+            emp.FirmaHk = sirketHk;
+            _employers.Update(emp);
+            return RedirectToAction("Index");
+        }
+        [HttpPost]
+        public IActionResult BilgiEkle(Employer emp)
+        {
+            var sirketHk = emp.FirmaHk;
+            emp = db.Employers.FirstOrDefault(x => x.Id == GlobalDeğişkenler.GirisId);
+            emp.FirmaHk = sirketHk;
+            _employers.Update(emp);
+            return RedirectToAction("Index");
         }
     }
 }
