@@ -10,35 +10,35 @@ using System.Threading.Tasks;
 
 namespace BussinesLayer.Concrete
 {
-    public class CvManager : IService<CvTable>
+    public class CvManager : IService<CvTablosu>
     {
-        GenericRepository<CvTable> _cv = new GenericRepository<CvTable>();
-        public void Add(CvTable entity)
+        GenericRepository<CvTablosu> _cv = new GenericRepository<CvTablosu>();
+        public void Add(CvTablosu entity)
         {
             _cv.Insert(entity);
         }
 
-        public void Delete(CvTable entity)
+        public void Delete(CvTablosu entity)
         {
             _cv.Delete(entity);
         }
 
-        public CvTable GetById(int id)
+        public CvTablosu GetById(int id)
         {
             return _cv.Get(x => x.Id == id);
         }
 
-        public List<CvTable> List()
+        public List<CvTablosu> List()
         {
             return _cv.List();
         }
 
-        public List<CvTable> List(Expression<Func<CvTable, bool>> filter)
+        public List<CvTablosu> List(Expression<Func<CvTablosu, bool>> filter)
         {
             return _cv.List();
         }
 
-        public void Update(CvTable entity)
+        public void Update(CvTablosu entity)
         {
             _cv.Update(entity);
         }

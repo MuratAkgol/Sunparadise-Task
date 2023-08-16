@@ -8,12 +8,29 @@
 @model List<IsIlanı>
 
 
-@foreach(var item in Model){
-    <b>@item.Baslik</b>
-    <br />
-    <b>@item.IsVerenAdi</b>
-    <p>İçerik: </p> @item.Icerik
-    @item.CalismaTuru
 
 
-}
+
+
+    <h3>En son yayınlanan ilanlar</h3>
+    <hr />
+<div class="row" id="card">
+    @foreach (var item in Model)
+    {
+        @* @item.Deneyim
+    @item.Eğitim
+    @item.AdSoyad*@
+        <div class="col-3 mt-2">
+            <div class="card mt-2">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Baslik</h5>
+                    <hr>
+                    @*<h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>*@
+                    <p class="card-text"><h6>İş hakkında:</h6> @item.Icerik</p>
+                    <p class="card-text"><h6>Çalışma Türü:</h6> @item.CalismaTuru</p>
+                    <h6 class="card-text">@item.IsVerenAdi</h6>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -10,3 +10,15 @@ C:\Users\huawei\Desktop\Sunparadise-Task\EntityLayer\obj\Debug\net5.0\EntityLaye
 C:\Users\huawei\Desktop\Sunparadise-Task\EntityLayer\obj\Debug\net5.0\refint\EntityLayer.dll
 C:\Users\huawei\Desktop\Sunparadise-Task\EntityLayer\obj\Debug\net5.0\EntityLayer.pdb
 C:\Users\huawei\Desktop\Sunparadise-Task\EntityLayer\obj\Debug\net5.0\ref\EntityLayer.dll
+C:\Users\murat\Desktop\Sunparadise\Sunparadise-Task\EntityLayer\bin\Debug\net5.0\EntityLayer.deps.json
+C:\Users\murat\Desktop\Sunparadise\Sunparadise-Task\EntityLayer\bin\Debug\net5.0\EntityLayer.dll
+C:\Users\murat\Desktop\Sunparadise\Sunparadise-Task\EntityLayer\bin\Debug\net5.0\EntityLayer.pdb
+C:\Users\murat\Desktop\Sunparadise\Sunparadise-Task\EntityLayer\obj\Debug\net5.0\EntityLayer.csproj.AssemblyReference.cache
+C:\Users\murat\Desktop\Sunparadise\Sunparadise-Task\EntityLayer\obj\Debug\net5.0\EntityLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\murat\Desktop\Sunparadise\Sunparadise-Task\EntityLayer\obj\Debug\net5.0\EntityLayer.AssemblyInfoInputs.cache
+C:\Users\murat\Desktop\Sunparadise\Sunparadise-Task\EntityLayer\obj\Debug\net5.0\EntityLayer.AssemblyInfo.cs
+C:\Users\murat\Desktop\Sunparadise\Sunparadise-Task\EntityLayer\obj\Debug\net5.0\EntityLayer.csproj.CoreCompileInputs.cache
+C:\Users\murat\Desktop\Sunparadise\Sunparadise-Task\EntityLayer\obj\Debug\net5.0\EntityLayer.dll
+C:\Users\murat\Desktop\Sunparadise\Sunparadise-Task\EntityLayer\obj\Debug\net5.0\refint\EntityLayer.dll
+C:\Users\murat\Desktop\Sunparadise\Sunparadise-Task\EntityLayer\obj\Debug\net5.0\EntityLayer.pdb
+C:\Users\murat\Desktop\Sunparadise\Sunparadise-Task\EntityLayer\obj\Debug\net5.0\ref\EntityLayer.dll

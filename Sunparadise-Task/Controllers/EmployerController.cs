@@ -2,6 +2,7 @@
 using DataLayer;
 using EntityLayer;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace Sunparadise_Task.Controllers
@@ -14,7 +15,7 @@ namespace Sunparadise_Task.Controllers
         Employer _employer;
 
         CvManager _cv = new CvManager();
-        CvTable _cvtlb;
+        CvTablosu _cvtlb;
 
         IsIlaniManager _isler = new IsIlaniManager();
         IsIlanı _is;
@@ -30,7 +31,7 @@ namespace Sunparadise_Task.Controllers
             var control = db.Employers.SingleOrDefault(x => x.Eposta == emp.Eposta && x.Sifre == emp.Sifre);
             if (control != null)
             {
-                GlobalDeğişkenler.GirisId = db.Users.FirstOrDefault(x => x.Email == emp.Eposta).Id;
+                GlobalDeğişkenler.GirisId = db.Employers.FirstOrDefault(x => x.Eposta == emp.Eposta).Id;
                 return RedirectToAction("Index");
             }
             return View();
@@ -57,8 +58,9 @@ namespace Sunparadise_Task.Controllers
         }
         public IActionResult CvGoruntule()
         {
-            var result = _cv.List();
-            return View(result);
+            var cvler = db.CvTablosu.Include(c => c.Deneyimler).ToList();
+
+            return View(cvler);
         }
         [HttpGet]
         public IActionResult IlanOlustur()
@@ -68,7 +70,6 @@ namespace Sunparadise_Task.Controllers
         [HttpPost]
         public IActionResult IlanOlustur(IsIlanı isilani)
         {
-            //isilani.IsVerenId = GlobalDeğişkenler.GirisId;
             isilani.IsVerenAdi = db.Employers.FirstOrDefault(x => x.Id == GlobalDeğişkenler.GirisId).FirmaAdi;
             _isler.Add(isilani);
             return RedirectToAction("Index");
@@ -76,12 +77,23 @@ namespace Sunparadise_Task.Controllers
         }
         public IActionResult IsIlanlarim()
         {
-            var result = db.IsIlanlari.Where(x=>x.IsVerenAdi == GlobalDeğişkenler.GirisId.ToString()).OrderByDescending(x=>x.ID).ToList();
+            var isVerenAdi = db.Employers.FirstOrDefault(x => x.Id == GlobalDeğişkenler.GirisId).FirmaAdi;
+            var result = db.IsIlanlari.Where(x=>x.IsVerenAdi == isVerenAdi).OrderByDescending(x=>x.ID).ToList();
             return View(result);
         }
         public IActionResult Index()
         {
-            return View();
+            var result = db.Employers.Where(x=>x.Id == GlobalDeğişkenler.GirisId).ToList();
+            return View(result);
+        }
+        [HttpPost]
+        public IActionResult BilgiGuncelle(Employer emp)
+        {
+            var sirketHk = emp.FirmaHk;
+            emp = db.Employers.FirstOrDefault(x => x.Id == GlobalDeğişkenler.GirisId);
+            emp.FirmaHk = sirketHk;
+            _employers.Update(emp);
+            return RedirectToAction("Index");
         }
     }
 }

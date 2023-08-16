@@ -5,35 +5,183 @@
     Layout = "~/Views/Shared/AfterLoginLayout.cshtml";
 }
 
+@using EntityLayer
+@model List<Deneyim>
+
+<body>
+   
+
+    <div class="container mt-4">
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <div class="row">
+                        <div class="col-6">
+                            <button class="btn text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <h3>Eğitim Bilgilerim</h3>
+                            </button>
+                        </div>
+                        <div class="col-6 justify-content-end">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#egitmEkleModal">
+                                Ekle
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div class="col-md-3 col-sm-6">
+                            @foreach (var item in Model)
+                            {
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-text">Lise: </h5><p>@ViewBag.lise</p>
+                                        <h5 class="card-text mb-2">Universite: </h5><p>@ViewBag.Universite</p>
+                                        <h5 class="card-text">Bölüm: </h5><p>@ViewBag.Bolum</p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="row">
+                            
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <div class="row">
+                        <div class="col-6">
+                            <button class="btn text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <h3>Deneyim</h3>
+                            </button>
+                        </div>
+                        <div class="col-6 justify-content-end">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deneyimEkleModal">
+                                Ekle
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div class="col-md-3 col-sm-6">
+                            @foreach (var item in Model)
+                            {
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">@item.FirmaAdi</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">@item.Pozisyon</h6>
+                                        <p class="card-text">@item.IsTanimi</p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        
+
+                    </div>
+                </div>
+               @* <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button class="btn text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <h3>Sertifikalar</h3>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="card-body">
+                            And lastly, the placeholder content for the third and final accordion panel. This panel is hidden by default.
+                        </div>
+                    </div>
+                </div>*@
+            </div>
+        </div>
 
 
-<div class="row">
-    <div class="col">
-        <form asp-action="CVYarat" asp-controller="User" method="post">
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Ad Soyad</span>
-            <input type="text" class="form-control" placeholder="" name="AdSoyad" aria-label="AdSoyad" aria-describedby="basic-addon1">
+
+
+
+        <!-- Button trigger modal -->
+        <!-- Modal Eğitim  -->
+        <div class="modal fade" id="egitmEkleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <form asp-action="Egitim" asp-controller="User" method="post">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Eğitim bilgisi ekle</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-md-3">
+                                <h4>Mezun olduğunuz lise*</h4>
+                                <input class="form-control" type="text" name="Lise" />
+                            </div>
+                            <div class="col-md-3 col-sm-6 mt-3">
+                                <h4>Mezun olduğunuz Üniversite</h4>
+                                <input class="form-control" type="text" name="Universite">
+                            </div>
+                            <div class="col-md-3 col-sm-6 mt-3">
+                                <h4>Bölüm</h4>
+                                <input class="form-control" type="text" name="Bolum">
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Deneyim</span>
-            <input type="text" class="form-control" placeholder="" name="Deneyim" aria-label="Deneyim" aria-describedby="basic-addon1">
+
+        <!--Modal Deneyim-->
+        <div class="modal fade" id="deneyimEkleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Eğitim bilgisi ekle</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form asp-action="Deneyim" asp-controller="User" method="post">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-3 col-sm-6">
+                                    <h3>Firma Adı</h3>
+                                    <input class="form-control" type="text" name="FirmaAdi" id="">
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <h3>Pozisyon</h3>
+                                    <input class="form-control" type="text" name="Pozisyon" id="">
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-md-6 col-sm-6">
+                                    <h3>İş tanımı</h3>
+                                    <textarea class="form-control" name="IsTanimi" id="" cols="100" rows="10"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <input type="submit" class="btn btn-primary" value="Kaydet" />
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Beceriler</span>
-            <input type="text" class="form-control" placeholder="" name="Beceriler" aria-label="Beceriler" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Sertifikalar</span>
-            <input type="text" class="form-control" placeholder="" name="Sertifikalar" aria-label="Sertifikalar" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Eğitim</span>
-            <input type="text" class="form-control" placeholder="" name="Eğitim" aria-label="Eğitim" aria-describedby="basic-addon1">
-        </div>
-        <button class="btn btn-success">Oluştur</button>
-        </form>
     </div>
-</div>
+
+</body>
+
 
 
 

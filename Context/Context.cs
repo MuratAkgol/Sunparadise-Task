@@ -15,11 +15,13 @@ namespace DataLayer
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer(@"Server=LAPTOP-PT4JT3A9; Database=Sunparadise; Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-NNI8G0S; Database=Sunparadise; Trusted_Connection=true");
         }
         public DbSet<User> Users { get; set; }
         public DbSet<Employer> Employers { get; set; }
-        public DbSet<CvTable> Cv { get; set; }
         public DbSet<IsIlanı> IsIlanlari { get; set; }
+        public DbSet<CvTablosu> CvTablosu { get; set; }
+        public DbSet<Deneyim> DeneyimTablosu { get; set; }
+        public DbSet<Egitim> EgitimTablosu { get; set; }
     }
 }

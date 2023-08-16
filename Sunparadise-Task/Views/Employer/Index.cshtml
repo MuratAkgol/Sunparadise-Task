@@ -4,4 +4,75 @@
 @{
     Layout = "~/Views/Shared/AfterLoginEmployer.cshtml";
 }
-Hoş geldin patron
+@using EntityLayer
+@model List<Employer>
+
+
+<h3>Şirket hakkında</h3>
+<div class="row">
+    <div class="col-md col-sm-6 border">
+        @foreach (var item in Model)
+        {
+            <div class="row">
+                <div class="col-md col-sm-6 text-center">
+                    <p class="mt-2">@item.FirmaHk</p>
+                    <button class="btn btn-primary mt-5 mb-2" type="submit" data-toggle="modal" data-target="#isBilgisiGuncelle">Düzenle</button>
+                </div>
+            </div>
+        }
+
+
+    </div>
+</div>
+
+
+
+
+<!--İş bilgisi ekleme-->
+<div class="modal fade" id="isBilgisiEkle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <form asp-action="BilgiEkle" asp-controller="Employer" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Şirket bilgisini güncelle</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <textarea class="form-control" cols="50" name="FirmaHk"></textarea>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!--İş bilgisi güncelleme-->
+<div class="modal fade" id="isBilgisiGuncelle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <form asp-action="BilgiGuncelle" asp-controller="Employer" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Şirket bilgisi ekle</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <textarea class="form-control" cols="50" name="FirmaHk"></textarea>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
