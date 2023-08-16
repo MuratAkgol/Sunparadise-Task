@@ -74,9 +74,11 @@ namespace Sunparadise_Task.Controllers
             var result = db.DeneyimTablosu.Where(x => x.CvTablosuId == cvid).ToList();
             if (cvid != 0 )
             {
-                ViewBag.lise = db.EgitimTablosu.FirstOrDefault(x=>x.CvTablosuId == cvid).Lise;
-                ViewBag.universite = db.EgitimTablosu.FirstOrDefault(x=>x.CvTablosuId == cvid).Universite;
-                ViewBag.bolum = db.EgitimTablosu.FirstOrDefault(x=>x.CvTablosuId == cvid).Bolum;
+                ViewBag.lise = db.EgitimTablosu.FirstOrDefault(x=>x.CvTablosuId == cvid)?.Lise;
+                ViewBag.universite = db.EgitimTablosu.FirstOrDefault(x=>x.CvTablosuId == cvid)?.Universite;
+                ViewBag.bolum = db.EgitimTablosu.FirstOrDefault(x=>x.CvTablosuId == cvid)?.Bolum;
+                ViewBag.Id = db.EgitimTablosu.FirstOrDefault(x=>x.CvTablosuId == cvid)?.Id;
+
             }
             return View(result);
 
@@ -138,12 +140,27 @@ namespace Sunparadise_Task.Controllers
             }
             return RedirectToAction("CvOlustur");
         }
+
+        public IActionResult EgitimSil(int id)
+        {
+            _egitim = _egitimler.GetById(id);
+            _egitimler.Delete(_egitim);
+            return RedirectToAction("CvOlustur");
+        }
+        public IActionResult DeneyimSil(int id)
+        {
+            _deneyim = _deneyimler.GetById(id);
+            _deneyimler.Delete(_deneyim);
+            return RedirectToAction("CvOlustur");
+        }
         public IActionResult Index()
         {
-
             var result = db.IsIlanlari.OrderByDescending(x => x.ID).ToList();
-            
             return View(result);
+        }
+        public IActionResult Basvur(int id)
+        {
+            return RedirectToAction("Index");
         }
     }
 }

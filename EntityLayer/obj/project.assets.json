@@ -8,23 +8,23 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\murat\\.nuget\\packages\\": {},
-    "D:\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\huawei\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\murat\\Desktop\\Sunparadise\\Sunparadise-Task\\EntityLayer\\EntityLayer.csproj",
+      "projectUniqueName": "C:\\Users\\huawei\\Desktop\\Sunparadise\\Sunparadise-Task\\EntityLayer\\EntityLayer.csproj",
       "projectName": "EntityLayer",
-      "projectPath": "C:\\Users\\murat\\Desktop\\Sunparadise\\Sunparadise-Task\\EntityLayer\\EntityLayer.csproj",
-      "packagesPath": "C:\\Users\\murat\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\murat\\Desktop\\Sunparadise\\Sunparadise-Task\\EntityLayer\\obj\\",
+      "projectPath": "C:\\Users\\huawei\\Desktop\\Sunparadise\\Sunparadise-Task\\EntityLayer\\EntityLayer.csproj",
+      "packagesPath": "C:\\Users\\huawei\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\huawei\\Desktop\\Sunparadise\\Sunparadise-Task\\EntityLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\murat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\huawei\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
