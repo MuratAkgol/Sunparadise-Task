@@ -95,14 +95,5 @@ namespace Sunparadise_Task.Controllers
             _employers.Update(emp);
             return RedirectToAction("Index");
         }
-        [HttpPost]
-        public IActionResult BilgiEkle(Employer emp)
-        {
-            var sirketHk = emp.FirmaHk;
-            emp = db.Employers.FirstOrDefault(x => x.Id == GlobalDeğişkenler.GirisId);
-            emp.FirmaHk = sirketHk;
-            _employers.Update(emp);
-            return RedirectToAction("Index");
-        }
     }
 }

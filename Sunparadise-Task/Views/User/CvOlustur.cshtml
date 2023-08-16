@@ -31,10 +31,22 @@
 
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                     <div class="card-body">
+                        <div class="col-md-3 col-sm-6">
+                            @foreach (var item in Model)
+                            {
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-text">Lise: </h5><p>@ViewBag.lise</p>
+                                        <h5 class="card-text mb-2">Universite: </h5><p>@ViewBag.Universite</p>
+                                        <h5 class="card-text">Bölüm: </h5><p>@ViewBag.Bolum</p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
                         <div class="row">
-                            @ViewBag.Lise
-                            @ViewBag.Universite
-                            @ViewBag.Bolum
+                            
+                            
+                            
                         </div>
                     </div>
                 </div>
@@ -56,18 +68,23 @@
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                     <div class="card-body">
-
-                        @foreach (var item in Model)
-                        {
-                            <p><b>Poziyon: </b>&nbsp; @item.Pozisyon</p>
-
-                            <p><b>İş Tanımı:</b>&nbsp; @item.IsTanimi</p>
-                        }
+                        <div class="col-md-3 col-sm-6">
+                            @foreach (var item in Model)
+                            {
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">@item.FirmaAdi</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">@item.Pozisyon</h6>
+                                        <p class="card-text">@item.IsTanimi</p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
                         
 
                     </div>
                 </div>
-                <div class="card">
+               @* <div class="card">
                     <div class="card-header" id="headingThree">
                         <h2 class="mb-0">
                             <button class="btn text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -80,7 +97,7 @@
                             And lastly, the placeholder content for the third and final accordion panel. This panel is hidden by default.
                         </div>
                     </div>
-                </div>
+                </div>*@
             </div>
         </div>
 
