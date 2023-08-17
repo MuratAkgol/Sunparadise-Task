@@ -8,7 +8,15 @@
 @model List<IsIlanı>
 
 
-
+    <script>
+        
+    
+        var alertMessage = '@TempData["AlertMessage"]';
+        if (alertMessage) {
+            alert(alertMessage);
+        
+    }
+    </script>
 
 
 
@@ -20,7 +28,7 @@
         @* @item.Deneyim
     @item.Eğitim
     @item.AdSoyad*@
-        <div class="col-3 mt-2">
+        <div class="col-md-6 col-sm-6 mt-2">
             <div class="card mt-2">
                 <div class="card-body">
                     <h5 class="card-title">@item.Baslik</h5>
@@ -29,7 +37,7 @@
                     <p class="card-text"><h6>İş hakkında:</h6> @item.Icerik</p>
                     <p class="card-text"><h6>Çalışma Türü:</h6> @item.CalismaTuru</p>
                     <h6 class="card-text">@item.IsVerenAdi</h6>
-                    <a class="btn btn-success" href="/User/Basvur/@item.ID">Başvur</a>
+                    <a class="btn btn-success" name="IsId" href="/User/Basvur/@item.ID">Başvur</a>
                 </div>
             </div>
         </div>

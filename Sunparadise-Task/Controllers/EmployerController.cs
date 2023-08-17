@@ -1,4 +1,5 @@
-﻿using BussinesLayer.Concrete;
+﻿
+using BussinesLayer.Concrete;
 using DataLayer;
 using EntityLayer;
 using Microsoft.AspNetCore.Mvc;
@@ -80,6 +81,12 @@ namespace Sunparadise_Task.Controllers
             var isVerenAdi = db.Employers.FirstOrDefault(x => x.Id == GlobalDeğişkenler.GirisId).FirmaAdi;
             var result = db.IsIlanlari.Where(x=>x.IsVerenAdi == isVerenAdi).OrderByDescending(x=>x.ID).ToList();
             return View(result);
+        }
+        public IActionResult IsIlaniSil(int id)
+        {
+            _is = _isler.GetById(id);
+            _isler.Delete(_is);
+            return RedirectToAction("IsIlanlarim");
         }
         public IActionResult Index()
         {

@@ -17,18 +17,10 @@
     }
 
     #border {
-        background: rgb(2,0,36);
-        background: linear-gradient(149deg, rgba(2,0,36,1) 0%, rgba(56,56,190,1) 70%, rgba(0,212,255,1) 94%, rgba(9,83,98,1) 94%);
+        background: linear-gradient(149deg, rgba(200,150,100,1) 0%, rgba(56,56,190,1) 70%, rgba(232,206,176,1) 94%, rgba(232,206,176,1) 94%);
         border-radius: 10%;
         transition: 1s;
     }
-
-/*    #degismis-id {
-        background: rgb(2,0,36);
-        background: linear-gradient(220deg, rgba(2,0,36,1) 0%, rgba(56,56,190,1) 70%, rgba(0,212,255,1) 94%, rgba(9,83,98,1) 94%);
-        border-radius: 10%;
-        transition: 1s;
-    }*/
 
 </style>
 
@@ -87,37 +79,13 @@
                 <div class="row align-items-center">
                     <!--Butonlar-->
                     <div class="col text-center">
-                        <button class="btn btn-success mb-4" id="giris" onmouseover="degismisid()" onmouseout="normalid()">Giriş yap</button>
-                        <a href="/User/UyeOl" class="btn btn-primary mb-4" id="giris" onmouseover="degismisid()" onmouseout="normalid()">Üye ol </a>
+                        <button class="btn btn-success mb-4" id="giris">Giriş yap</button>
+                        <a href="/User/UyeOl" class="btn btn-primary mb-4" id="giris">Üye ol </a>
                     </div>
                 </div>
             </div>
         </form>
     </div>
-
-    @*<script>
-        function degismisid() {
-            let degirstir = document.getElementById("border");
-            degirstir.id = "degismis-id";
-        }
-        function normalid() {
-            let degirstir = document.getElementById("degismis-id");
-            degirstir.remove.id = "degismis-id";
-            degirstir.id = "border";
-        }
-        function uyeolid() {
-            let degirstir = document.getElementById("border");
-            degirstir.id = "uyeol";
-        }
-        function uyenormal() {
-            let degirstir = document.getElementById("uyeol");
-            degirstir.remove.id = "uyeol";
-            degirstir.id = "border";
-        }
-
-    </script>
-*@
-
 </body>
 </html>
 

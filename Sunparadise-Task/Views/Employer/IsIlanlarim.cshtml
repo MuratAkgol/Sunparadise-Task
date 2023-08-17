@@ -15,7 +15,7 @@
         @* @item.Deneyim
     @item.Eğitim
     @item.AdSoyad*@
-        <div class="col-3 mt-2">
+        <div class="col-md-6 col-sm-6 mt-2">
             <div class="card mt-2">
                 <div class="card-body">
                     <h5 class="card-title">@item.Baslik</h5>
@@ -23,6 +23,7 @@
                     <p class="card-text"><b>İş hakkında:</b> @item.Icerik</p>
                     <p class="card-text"><b>Çalışma türü:</b> @item.CalismaTuru</p>
                 </div>
+                <a class="btn btn-danger" href="/Employer/IsIlaniSil/@item.ID">Sil</a>
             </div>
         </div>
     }

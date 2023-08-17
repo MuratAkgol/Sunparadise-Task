@@ -1,0 +1,86 @@
+﻿@using EntityLayer;
+@model IsBasvuranlar
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/AfterLoginEmployer.cshtml";
+}
+
+
+@*@foreach (var item in Model.IsIlani)
+{
+    @item.Baslik
+    <br />
+    @item.Icerik
+    <br />
+    @item.CalismaTuru
+    <br />
+    @item.IsVerenAdi
+    <br />
+    @foreach (var basvuru in Model.Deneyimler)
+    {
+
+        <p>Firma Adi: @basvuru.FirmaAdi</p>
+        <br />
+        <p>Pozisyon: @basvuru.Pozisyon</p>
+        <br />
+        <p>İş Tanımı: @basvuru.IsTanimi</p>
+
+    }
+    @foreach (var egitim in Model.Egitimler)
+    {
+        <p>Lise: </p> @egitim.Lise
+        <br />
+        <p>Universite: </p> @egitim.Universite
+        <br />
+        <p>Bölüm: </p> @egitim.Bolum
+    }
+
+}*@
+
+
+
+
+
+<div class="container mt-4">
+    @foreach (var item in Model.IsIlani)
+    {
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <div class="row">
+                        <div class="col-md col-sm-6">
+                            <button class="btn text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <h3>@item.Baslik</h3>
+                                <h4>@item.Icerik</h4>
+                                <h5>@item.CalismaTuru</h5>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        @foreach (var isim in Model.Deneyimler)
+                        {
+                            
+                        <div class="col-md-6 col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-header">@isim.FirmaAdi</h5>
+                                    <h5 class="card-text mb-2">@isim.Pozisyon</h5>
+                                    <p class="card-text">@isim.IsTanimi</p>
+                                </div>
+                            </div>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+

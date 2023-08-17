@@ -30,6 +30,9 @@ namespace Sunparadise_Task.Controllers
         EgitimManager _egitimler = new EgitimManager();
         Egitim _egitim;
 
+        BasvuruManager _basvurular = new BasvuruManager();
+        Basvuru _basvuru;
+
         [HttpGet]
         public IActionResult Aday()
         {
@@ -89,7 +92,7 @@ namespace Sunparadise_Task.Controllers
         {
             var isim = db.Users.FirstOrDefault(x => x.Id == GlobalDeğişkenler.GirisId).Isim;
             var soyad = db.Users.FirstOrDefault(x => x.Id == GlobalDeğişkenler.GirisId).SoyAd;
-            string isimSoyisim = isim + soyad;
+            string isimSoyisim = isim + " " + soyad;
             var control = db.CvTablosu.FirstOrDefault(x => x.IsimSoyisim == isimSoyisim);
 
             usr = db.Users.FirstOrDefault(x => x.Id == GlobalDeğişkenler.GirisId);
@@ -117,7 +120,7 @@ namespace Sunparadise_Task.Controllers
         {
             var isim = db.Users.FirstOrDefault(x => x.Id == GlobalDeğişkenler.GirisId).Isim;
             var soyad = db.Users.FirstOrDefault(x => x.Id == GlobalDeğişkenler.GirisId).SoyAd;
-            string isimSoyisim = isim + soyad;
+            string isimSoyisim = isim + " " +soyad;
             var control = db.CvTablosu.FirstOrDefault(x => x.IsimSoyisim == isimSoyisim);
 
             usr = db.Users.FirstOrDefault(x => x.Id == GlobalDeğişkenler.GirisId);
@@ -156,10 +159,32 @@ namespace Sunparadise_Task.Controllers
         public IActionResult Index()
         {
             var result = db.IsIlanlari.OrderByDescending(x => x.ID).ToList();
+            var BasvuranCvId = db.BasvuruTablosu.FirstOrDefault(x => x.Id == GlobalDeğişkenler.GirisId)?.BasvuranCvId;
+            var IsId = db.BasvuruTablosu.FirstOrDefault(x => x.Id == GlobalDeğişkenler.GirisId)?.IsId;
+            ViewBag.BasvuranCvId = BasvuranCvId;
+            ViewBag.IsId = IsId;
+
+
+
             return View(result);
+
+
         }
-        public IActionResult Basvur(int id)
+        public IActionResult Basvur(Basvuru bsvr)
         {
+            var BasvuranCvId = db.BasvuruTablosu.FirstOrDefault(x => x.Id == GlobalDeğişkenler.GirisId)?.BasvuranCvId;
+            var IsId = db.BasvuruTablosu.FirstOrDefault(x => x.Id == GlobalDeğişkenler.GirisId)?.IsId;
+            
+            bsvr.IsId = bsvr.Id;
+            bsvr.Id = 0;
+            bsvr.BasvuranCvId = db.Users.FirstOrDefault(x=>x.Id == GlobalDeğişkenler.GirisId).CvId;
+
+            if (db.BasvuruTablosu.Any(x=>x.BasvuranCvId == bsvr.BasvuranCvId && x.IsId == bsvr.IsId))
+            {
+                TempData["AlertMessage"] = "Daha onceden bu ilana basvuru gonderdin!";
+                return RedirectToAction("Index");
+            }
+            _basvurular.Add(bsvr);
             return RedirectToAction("Index");
         }
     }
